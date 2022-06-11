@@ -1,0 +1,45 @@
+/* 10 de abril, 2022 */
+/* Font Import */
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Poppins:ital,wght@0,300;0,600;1,300&family=Roboto&display=swap");
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles ****/
+:root {
+  font-family: "Poppins", sans-serif;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/* Header ******/
+
+/* Navigation ******/
+
+/* Main Body ******/
+.display-books {
+  padding: 2em 5em;
+  border: 5px solid rgb(146, 125, 7);
+  border-radius: 10px;
+}
+/* Typography ******/
+.object-title {
+  text-align: center;
+  font-size: 5rem;
+}
+
+/* Buttons */
