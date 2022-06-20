@@ -3,24 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library Application Odiin</title>
+    <title>Library Application Odin</title>
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/bc0e63a317.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <section class="container">
+      <!-- Modal -->
+      <h2>Book Record Entry</h2>
+      <div class="modal">
+        <form id="forms" class="book-information-form">
+          <div class="close-box">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <fieldset>
+            <legend>Add to library</legend>
+            <ul class="book-styles">
+              <li>
+                <label for="book-title">Book Title</label>
+                <input type="text" name="book-title" id="book-title" />
+              </li>
+              <li>
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author" />
+              </li>
+              <li class="pages-size">
+                <label for="pages">Pages</label>
+                <input type="number" name="pages" id="pages" />
+              </li>
+              <li>
+                <label for="completed">Completed</label>
+                <select id="completed" name="completed">
+                  <option value="yes">Yes</option>
+                  <option value="No" selected>No</option>
+                </select>
+              </li>
+              <li class="btn-submit-list">
+                <button type="submit" class="submit-btn">Submit</button>
+              </li>
+            </ul>
+          </fieldset>
+        </form>
+      </div>
+
       <h1 class="library-title">Kweku Star Library</h1>
 
       <div class="table-outer-container">
         <div class="add_new_container">
           <button class="add-btn">Add Book</button>
         </div>
+        <p>Kweku Star Library</p>
         <div class="table-container"></div>
       </div>
     </section>
 
     <!-- JS Link -->
+
     <script src="./js/app.js"></script>
   </body>
 </html>
