@@ -1,5 +1,5 @@
 ////////////////////////////////
-///   10 de abril, 2022    /////
+///   10 de junio, 2022    /////
 ////////////////////////////////
 
 // Display
@@ -49,7 +49,6 @@ addBookToLibrary(mybook);
 addBookToLibrary(mybook2);
 addBookToLibrary(mybook3);
 addBookToLibrary(mybook4);
-console.log(myLibrary);
 
 // FUNCTIONS //
 const pageLibraryDisplay = book_libray => {
