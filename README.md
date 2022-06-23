@@ -26,8 +26,6 @@ Part of a series of applications, and various web projects, from The Odin Projec
 
 # The challenge
 
-# Users should be able to:
-
 # Screenshot
 
 # Link
