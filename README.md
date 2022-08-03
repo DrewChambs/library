@@ -14,7 +14,7 @@ Part of a series of applications, and various web projects, from The Odin Projec
 •	What I learned
 •	Continued development
 •	Author - Andrew Chambers
-•	Personal Website - andrewchambersweb.com
+•	Personal Website - [andrewchambersweb.com](https://andrewchambersweb.com/)
 
 
 # Overview
