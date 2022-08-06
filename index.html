@@ -3,26 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library Application Odin</title>
-
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <title>Odin Library Application</title>
 
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/bc0e63a317.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- JS -->
+    <script src="./js/app.js" defer></script>
+    
   </head>
   <body>
-    <section class="container">
-      <div class="modal">
-        <form id="forms" class="book-information-form">
+    <section class="hero">
+      <div class="container">
+        <header class="header">
+          <h1 class="logo">Kweku Personal Library</h1>
+          <nav class="nav">
+            <ul class="links" role="list">
+              <li class="links-list">
+                <a href="../index.html" class="links-anchor">home</a>
+              </li>
+              <li class="links-list">
+                <a href="#" class="links-anchor">table</a>
+              </li>
+              <li class="links-list">
+                <a href="#" class="links-anchor">about</a>
+              </li>
+              <li class="links-list">
+                <a href="#" class="links-anchor">hope</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </section>
+   
+<section class="form_section">
+  <div class="modal">
+    <form id="forms" class="book-information-form">
           <div class="close-box">
             <i class="fa-solid fa-xmark"></i>
           </div>
           <fieldset>
+            <p class="entry-warning"></p>
             <legend>Add to library</legend>
+            <!-- <p class="add_warning">Something must be added</p> -->
             <ul class="book-styles">
               <li>
                 <label for="book-title">Book Title</label>
@@ -49,20 +79,20 @@
             </ul>
           </fieldset>
         </form>
-      </div>
-
-      <h1 class="library-title">Kweku Star Library</h1>
-
-      <div class="table-outer-container">
-        <div class="add_new_container">
-          <button class="add-btn">Add Book</button>
-          <p>Kweku Star Library</p>
-        </div>
-        <div class="table-container"></div>
-      </div>
+       </div>
     </section>
 
-    <!-- JS Link -->
-    <script src="./js/app.js"></script>
+    <section class="main">
+      <div class="container">
+        <div class="table-container">
+             <div class="bookHolder">
+        <button class="btn-add" id="btn-add">Add a Book</button>
+        <button class="btn-clear" id="btn-clear">Clear All</button>
+        <p class="warning">What ya gonna do?</p>
+       </div>
+        </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

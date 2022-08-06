@@ -2,10 +2,11 @@
 ///   10 de junio, 2022    /////
 ////////////////////////////////
 
-// Display
-const tableContainer = document.querySelector(".table-container");
-
+// 2 de agosto, 2022
 // Book object
+// 6 de agosto, 2022
+
+// Book Object
 function Book(title, author, pages, read) {
   (this.title = title),
     (this.author = author),
@@ -20,91 +21,202 @@ function Book(title, author, pages, read) {
     });
 }
 
-// Array to hold library books
+// Book Array
 let myLibrary = [];
+let bookCounter = 0;
 
-// Function to add to Library
-function addBookToLibrary(newBook) {
+// Display div
+const tableContainer = document.querySelector(".table-container");
+
+// Add Button
+const btnAdd = document.querySelector(".btn-add");
+const clearBtn = document.querySelector(".btn-clear");
+const submitBtn = document.querySelector(".submit-btn");
+const modal = document.querySelector(".modal");
+const closeModal = document.querySelector(".fa-xmark");
+
+// Table Headgings ---
+const titleNames = ["Title", "Author", "Pages", "Read", "Edit"];
+
+// Create table
+const table = document.createElement("table");
+
+// Form Select
+const form = document.querySelector(".book-information-form");
+
+// Book Select
+const bookTitle = document.querySelector("#book-title");
+const bookAuthor = document.querySelector("#author");
+const bookPages = document.querySelector("#pages");
+const bookCompleted = document.querySelector("#completed");
+
+form.addEventListener("submit", addBookToLibrary);
+
+// load headings
+loadHeadings(titleNames);
+
+// ------------------------------------------------ //
+// FUNCTIONS
+// Add to Library
+function addBookToLibrary(e) {
+  e.preventDefault();
+  addToLocalStorage();
+}
+
+// Load table headings
+function loadHeadings(titleArray) {
+  const tr = document.createElement("tr");
+  titleArray.forEach(item => {
+    const th = document.createElement("th");
+    th.classList.add("center-text");
+    th.textContent = `${item}`;
+    tr.appendChild(th);
+    table.appendChild(tr);
+    tableContainer.appendChild(table);
+  });
+}
+
+// *** Retrieve Library from localStorage **** //
+myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+
+// console.log(myLibrary);
+function displayOnPage(oldLibrary) {
+  oldLibrary.forEach(item => {
+    const tr = document.createElement("tr");
+    tr.id = bookCounter++;
+    tr.innerHTML = `
+             <td>${item.title}</td>
+             <td>${item.author}</td>
+             <td class="center-text">${item.pages}</td>
+             <td class="center-text">${item.read}</td>`;
+    table.appendChild(tr);
+
+    // Buttons ///
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "EDIT";
+    editBtn.classList.add("btn-edit");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "DEL";
+    deleteBtn.classList.add("btn-delete");
+
+    //////
+    const tdBtn = document.createElement("td");
+    tdBtn.classList.add("tdButtons");
+    tdBtn.appendChild(editBtn);
+    tr.appendChild(tdBtn);
+    table.appendChild(tr);
+
+    /////
+    tdBtn.appendChild(deleteBtn);
+    tr.appendChild(tdBtn);
+    table.appendChild(tr);
+
+    // Dynamic buttons
+    deleteBtn.addEventListener("click", e => {
+      const row = e.currentTarget;
+      const lostrow = e.currentTarget.parentElement.parentElement;
+
+      if (row.classList.contains("btn-delete")) {
+        e.currentTarget.parentElement.parentElement.remove();
+      }
+
+      // deleteItemFromLocalStorage(lostrow.id);
+      // Delete from localStorage
+      let items = getItemsFromLocalStorage();
+      items.filter((item, index) => {
+        let newIndex = index + 1;
+        if (newIndex == lostrow.id) {
+          console.log(`${newIndex} matches ${lostrow.id}`);
+          items.splice(newIndex, 1);
+        } else if (index == 0) {
+          items.splice(index, 1);
+        }
+      });
+      localStorage.setItem("myLibrary", JSON.stringify(items));
+      console.log(items);
+    });
+    //
+    editBtn.addEventListener("click", e => {
+      console.log("Edit pressed!");
+    });
+  });
+}
+
+// Display table
+// displayOnPage(myLibrary);
+// ------------------------------------------------ //
+// Buttons ---------------- //
+btnAdd.addEventListener("click", () => {
+  modal.classList.add("modal-show");
+  clearItems();
+});
+
+// Reload to add a new entry
+submitBtn.addEventListener("click", () => {
+  if (
+    bookTitle.value === "" ||
+    bookAuthor.value === "" ||
+    bookPages.value === "" ||
+    bookCompleted.value === ""
+  ) {
+    alert("You must fill all fields!");
+    return;
+  } else {
+    location.reload();
+  }
+});
+
+// Close Modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("modal-close");
+  location.reload();
+});
+
+// const id = new Date().getTime().toString();
+function addToLocalStorage() {
+  // e.preventDefault();
+  let newBook = new Book(
+    bookTitle.value,
+    bookAuthor.value,
+    bookPages.value,
+    bookCompleted.value
+  );
+  let myLibrary = localStorage.getItem("myLibrary")
+    ? JSON.parse(localStorage.getItem("myLibrary"))
+    : [];
   myLibrary.push(newBook);
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
   return myLibrary;
 }
 
-const mybook = new Book("When the wind blows", "Ben Jamin", 235, true);
+// Display Library on page load
+window.addEventListener("DOMContentLoaded", displayOnPage(myLibrary));
 
-const mybook2 = new Book(
-  "Call All the People in Town",
-  "James Rooland-Kent",
-  433,
-  true
-);
-const mybook3 = new Book(
-  "Silly Games for the Masses",
-  "Jonathon Miles",
-  245,
-  false
-);
-const mybook4 = new Book("Find a Way", "Gooly Gim", 1235, true);
-
-addBookToLibrary(mybook);
-addBookToLibrary(mybook2);
-addBookToLibrary(mybook3);
-addBookToLibrary(mybook4);
-
-// FUNCTIONS //
-const pageLibraryDisplay = book_libray => {
-  let newBookLibrary = book_libray.map(item => {
-    return `<table>
-            <tr>
-              <th class="book-title-heading">Book Title</th>
-              <td class="book-title">
-                ${item.title}
-              </td>
-            </tr>
-            <tr>
-              <th>Author</th>
-              <td>${item.author}</td>
-            </tr>
-            <tr>
-              <th>Pages</th>
-              <td>${item.pages}</td>
-            </tr>
-            <tr>
-              <th>Completed</th>
-              <td class="read-book">${item.read ? "Yes" : "No"}</td>
-            </tr>
-            <tr>
-              <th class="change-details">Change Details:</th>
-              <td>
-                <div class="btn-holder">
-                  <button class="read-btn">Read Book</button>
-                  <button class="delete-btn">Delete Book</button>
-                </div>
-              </td>
-            </tr>
-          </table>`;
-  });
-  tableContainer.innerHTML = newBookLibrary;
+const clearItems = () => {
+  bookTitle.value = "";
+  bookAuthor.value = "";
+  bookPages.value = "";
+  bookCompleted.value = "";
 };
 
-// Display on Page
-pageLibraryDisplay(myLibrary);
+//
+function getItemsFromLocalStorage() {
+  return localStorage.getItem("myLibrary")
+    ? JSON.parse(localStorage.getItem("myLibrary"))
+    : [];
+}
 
-// Function to change book "read" status
-function readStatus() {}
+function deleteItemFromLocalStorage(id) {
+  let items = getLocalStorage();
+  items = items.filter(item => {
+    if (item.id !== id) {
+      return item;
+    }
+  });
+  localStorage.setItem("myLibrary", JSON.stringify(items));
+}
 
-// Buttons SELECT
-const addBtn = document.querySelector(".add-btn");
-const deleteBtn = document.querySelector(".delete-btn");
-const readBtn = document.querySelector(".read-btn");
-
-// Events
-deleteBtn.addEventListener("click", () => {
-  console.log("Delete button!");
-});
-addBtn.addEventListener("click", () => {
-  console.log("Add Suppen yo!");
-});
-readBtn.addEventListener("click", () => {
-  console.log("Read this book!");
-  document.querySelector(".read-book").textContent = "Yes";
-});
+// clearBtn.addEventListener("click", () => {
+//   localStorage.removeItem("myLibrary");
+//   location.reload();
+// });
