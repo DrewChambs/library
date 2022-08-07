@@ -152,17 +152,7 @@ btnAdd.addEventListener("click", () => {
 
 // Reload to add a new entry
 submitBtn.addEventListener("click", () => {
-  if (
-    bookTitle.value === "" ||
-    bookAuthor.value === "" ||
-    bookPages.value === "" ||
-    bookCompleted.value === ""
-  ) {
-    alert("You must fill all fields!");
-    return;
-  } else {
-    location.reload();
-  }
+  location.reload();
 });
 
 // Close Modal
@@ -173,23 +163,23 @@ closeModal.addEventListener("click", () => {
 
 // const id = new Date().getTime().toString();
 function addToLocalStorage() {
-  // e.preventDefault();
   let newBook = new Book(
     bookTitle.value,
     bookAuthor.value,
     bookPages.value,
     bookCompleted.value
   );
+
+  // Check to see if items exist in storage
   let myLibrary = localStorage.getItem("myLibrary")
     ? JSON.parse(localStorage.getItem("myLibrary"))
     : [];
+
+  // Add new book to library
   myLibrary.push(newBook);
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
   return myLibrary;
 }
-
-// Display Library on page load
-window.addEventListener("DOMContentLoaded", displayOnPage(myLibrary));
 
 const clearItems = () => {
   bookTitle.value = "";
@@ -219,3 +209,6 @@ function deleteItemFromLocalStorage(id) {
 //   localStorage.removeItem("myLibrary");
 //   location.reload();
 // });
+
+// Display Library on page load
+window.addEventListener("DOMContentLoaded", displayOnPage(myLibrary));
