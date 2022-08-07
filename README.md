@@ -40,7 +40,7 @@ Part of a series of applications, and various web projects, from The Odin Projec
 
 > > > > > > > test_user_i
 
-# Link
+# Link to project
 
 https://drewchambs.github.io/library/
 

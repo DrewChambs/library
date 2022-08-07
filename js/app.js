@@ -3,8 +3,7 @@
 ////////////////////////////////
 
 // 2 de agosto, 2022
-// Book object
-// 6 de agosto, 2022
+// 6 de agosto, 2022 update
 
 // Book Object
 function Book(title, author, pages, read) {
