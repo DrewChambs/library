@@ -144,6 +144,7 @@ function displayOnPage(oldLibrary) {
     });
     //
     editBtn.addEventListener("click", e => {
+      alert("Edit button disabled!");
       console.log("Edit pressed!");
     });
   });
@@ -205,10 +206,9 @@ closeModal.addEventListener("click", () => {
 });
 
 // Clear All Items
-// clearBtn.addEventListener("click", () => {
-//   localStorage.removeItem("myLibrary");
-//   location.reload();
-// });
+clearBtn.addEventListener("click", () => {
+  alert("Clear All Items button disbled!");
+});
 
 // Display Library on page load
 window.addEventListener("DOMContentLoaded", displayOnPage(myLibrary));
