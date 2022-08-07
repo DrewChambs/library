@@ -78,7 +78,6 @@ function loadHeadings(titleArray) {
 // *** Retrieve Library from localStorage **** //
 myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
 
-// console.log(myLibrary);
 function displayOnPage(oldLibrary) {
   oldLibrary.forEach(item => {
     const tr = document.createElement("tr");
@@ -119,7 +118,6 @@ function displayOnPage(oldLibrary) {
         e.currentTarget.parentElement.parentElement.remove();
       }
 
-      // deleteItemFromLocalStorage(lostrow.id);
       // Delete from localStorage
       let items = getItemsFromLocalStorage();
       items.filter((item, index) => {
@@ -140,28 +138,6 @@ function displayOnPage(oldLibrary) {
     });
   });
 }
-
-// Display table
-// displayOnPage(myLibrary);
-// ------------------------------------------------ //
-// Buttons ---------------- //
-btnAdd.addEventListener("click", () => {
-  modal.classList.add("modal-show");
-  clearItems();
-});
-
-// Reload to add a new entry
-submitBtn.addEventListener("click", () => {
-  location.reload();
-});
-
-// Close Modal
-closeModal.addEventListener("click", () => {
-  modal.classList.add("modal-close");
-  location.reload();
-});
-
-// const id = new Date().getTime().toString();
 function addToLocalStorage() {
   let newBook = new Book(
     bookTitle.value,
@@ -180,21 +156,11 @@ function addToLocalStorage() {
   localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
   return myLibrary;
 }
-
-const clearItems = () => {
-  bookTitle.value = "";
-  bookAuthor.value = "";
-  bookPages.value = "";
-  bookCompleted.value = "";
-};
-
-//
 function getItemsFromLocalStorage() {
   return localStorage.getItem("myLibrary")
     ? JSON.parse(localStorage.getItem("myLibrary"))
     : [];
 }
-
 function deleteItemFromLocalStorage(id) {
   let items = getLocalStorage();
   items = items.filter(item => {
@@ -204,7 +170,33 @@ function deleteItemFromLocalStorage(id) {
   });
   localStorage.setItem("myLibrary", JSON.stringify(items));
 }
+// Clear all fields function
+const clearItems = () => {
+  bookTitle.value = "";
+  bookAuthor.value = "";
+  bookPages.value = "";
+  bookCompleted.value = "";
+};
 
+// ------------------------ //
+// Button Events //
+btnAdd.addEventListener("click", () => {
+  modal.classList.add("modal-show");
+  clearItems();
+});
+
+// Reload to add a new entry
+submitBtn.addEventListener("click", () => {
+  location.reload();
+});
+
+// Close Modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("modal-close");
+  location.reload();
+});
+
+// Clear All Items
 // clearBtn.addEventListener("click", () => {
 //   localStorage.removeItem("myLibrary");
 //   location.reload();
