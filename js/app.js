@@ -22,6 +22,7 @@ function Book(title, author, pages, read) {
 
 // Book Array
 let myLibrary = [];
+// Counter to add id to books
 let bookCounter = 0;
 
 // Display div
@@ -40,7 +41,7 @@ const titleNames = ["Title", "Author", "Pages", "Read", "Edit"];
 // Create table
 const table = document.createElement("table");
 
-// Form Select
+// Select form
 const form = document.querySelector(".book-information-form");
 
 // Book Select
@@ -54,12 +55,21 @@ form.addEventListener("submit", addBookToLibrary);
 // load headings
 loadHeadings(titleNames);
 
-// ------------------------------------------------ //
+// -------------------------- //
 // FUNCTIONS
-// Add to Library
 function addBookToLibrary(e) {
   e.preventDefault();
-  addToLocalStorage();
+  if (
+    bookTitle.value === "" ||
+    bookAuthor.value === "" ||
+    bookPages.value === "" ||
+    bookCompleted.value === ""
+  ) {
+    alert("You must complete all fields, or close out entry form");
+  } else {
+    addToLocalStorage();
+    location.reload();
+  }
 }
 
 // Load table headings
@@ -186,9 +196,7 @@ btnAdd.addEventListener("click", () => {
 });
 
 // Reload to add a new entry
-submitBtn.addEventListener("click", () => {
-  location.reload();
-});
+submitBtn.addEventListener("click", () => {});
 
 // Close Modal
 closeModal.addEventListener("click", () => {
