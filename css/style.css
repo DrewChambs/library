@@ -102,27 +102,8 @@ select {
   padding: 1em 0;
 }
 
-/* Navigation */
-.hero {
-  background-color: hsl(207, 44%, 49%);
-}
-.links-list {
-  margin-right: 2em;
-}
-.links-anchor {
-  text-transform: capitalize;
-  color: var(--clr-white);
-  font-weight: 500;
-  letter-spacing: 3px;
-  transition: 250ms;
-}
-.links-anchor:hover {
-  color: hsl(0, 0%, 20%);
-}
-
 /* Typography */
 .logo {
-  color: hsl(0, 0%, 100%);
   text-align: center;
 }
 /* Utility */
@@ -294,14 +275,6 @@ form li {
 @media (min-width: 700px) {
   .container {
     width: 90%;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .links {
-    display: flex;
   }
 
   /* Table */
