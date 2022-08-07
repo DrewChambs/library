@@ -89,6 +89,12 @@ select {
 }
 
 /*****************************/
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  /* ********* */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+}
 .container {
   width: 80%;
   margin: 0 auto;
@@ -105,7 +111,7 @@ select {
 }
 .links-anchor {
   text-transform: capitalize;
-  color: #fff;
+  color: var(--clr-white);
   font-weight: 500;
   letter-spacing: 3px;
   transition: 250ms;
@@ -126,8 +132,8 @@ select {
 
 /*** Table ***/
 .table-container {
-  border: 5px solid hsl(0, 3%, 36%);
-  border-radius: 5px;
+  border: 3px solid hsl(0, 0%, 50%);
+  border-radius: var(--border-radius-sm);
 }
 table {
   width: 100%;
@@ -140,17 +146,13 @@ table {
 }
 .table-header-row {
   background-color: #000;
-  color: #fff;
+  color: var(--clr-white);
 }
 td,
 th {
   padding: 0.5em;
   text-align: left;
   font-size: 0.6rem;
-}
-.table-container {
-  border: 5px solid hsl(0, 0%, 50%);
-  border-radius: 8px;
 }
 th {
   background-color: hsl(0, 0%, 0%);
@@ -171,7 +173,7 @@ button {
 .btn-add {
   cursor: pointer;
   background-color: red;
-  color: #fff;
+  color: var(--clr-white);
   font-weight: 800;
   padding: 0.5em 1em;
   border-radius: 8px;
@@ -196,11 +198,20 @@ button {
 }
 .btn-edit:hover {
   background-color: hsl(120, 100%, 30%);
-  color: #fff;
+  color: var(--clr-white);
 }
 .btn-delete:hover {
   background-color: hsl(0, 100%, 30%);
-  color: #fff;
+  color: var(--clr-white);
+}
+
+/* Warning Display */
+.warning {
+  background-color: hsl(0, 100%, 50%);
+  padding: 0.5em 0.75em;
+  border-radius: var(--border-radius-sm);
+  color: var(--clr-white);
+  font-weight: 700;
 }
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
@@ -233,7 +244,7 @@ button {
   border-radius: 5px;
   padding: 3em 1.2em;
   margin: 0 auto;
-  color: #fff;
+  color: var(--clr-white);
   /* ************ */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
@@ -243,7 +254,6 @@ button {
 }
 fieldset {
   padding: 1em 0.25em;
-  border-radius: var(--bord-rad);
 }
 legend {
   font-weight: 900;
