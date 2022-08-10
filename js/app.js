@@ -206,9 +206,9 @@ closeModal.addEventListener("click", () => {
 });
 
 // Clear All Items
-clearBtn.addEventListener("click", () => {
-  alert("Clear All button disbled!");
-});
+// clearBtn.addEventListener("click", () => {
+//   alert("Clear All button disbled!");
+// });
 
 // Display Library on page load
 window.addEventListener("DOMContentLoaded", displayOnPage(myLibrary));
