@@ -107,7 +107,6 @@ select {
   width: 80%;
   margin: 0 auto;
   max-width: 1100px;
-  background-color: var(--clr-steel);
 }
 
 /* Typography */
@@ -121,13 +120,11 @@ select {
 
 /*** Table ***/
 .table-container {
-  /* border: 3px solid hsl(0, 0%, 50%); */
+  border: 3px solid hsl(0, 0%, 50%);
   border-radius: var(--border-radius-sm);
-  /* background-color: var(--clr-white); */
-  background-color: rgba(255, 247, 247, 0.986);
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
-  box-shadow: 5px 5px 15px 5px #000000;
-  padding: 2em;
+  /* -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000; */
+  padding: 0.5em;
 }
 table {
   width: 100%;
@@ -175,7 +172,7 @@ button {
   padding: 0.5em 1em;
   border-radius: 8px;
   border: 2px solid black;
-  margin: 1em;
+  margin-bottom: 1em;
   font-size: 0.6rem;
 }
 .btn-edit,
