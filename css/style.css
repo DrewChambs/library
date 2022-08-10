@@ -119,12 +119,7 @@ select {
 table {
   width: 100%;
 }
-.tdButtons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-}
+
 .table-header-row {
   background-color: #000;
   color: var(--clr-white);
@@ -141,12 +136,21 @@ th {
 }
 
 /*** Buttons ***/
+/* table data Buttons */
+.tdButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 /* Add/Clear buttons */
 .bookHolder {
   display: flex;
   align-items: center;
   gap: 20px;
 }
+
+/* Main Buttons */
 button {
   cursor: pointer;
 }
@@ -167,7 +171,7 @@ button {
   font-weight: 900;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
+  color: #000;
   padding: 0.25em 0.5em;
   transition: 250ms;
 }
