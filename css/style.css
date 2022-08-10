@@ -91,15 +91,23 @@ select {
 /*****************************/
 :root {
   --clr-white: hsl(0, 0%, 100%);
+  --clr-steel: hsl(207, 44%, 49%);
   /* ********* */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
+}
+.main {
+  /* background-color: var(--clr-steel); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   width: 80%;
   margin: 0 auto;
   max-width: 1100px;
-  padding: 1em 0;
+  background-color: var(--clr-steel);
 }
 
 /* Typography */
@@ -113,13 +121,17 @@ select {
 
 /*** Table ***/
 .table-container {
-  border: 3px solid hsl(0, 0%, 50%);
+  /* border: 3px solid hsl(0, 0%, 50%); */
   border-radius: var(--border-radius-sm);
+  /* background-color: var(--clr-white); */
+  background-color: rgba(255, 247, 247, 0.986);
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  padding: 2em;
 }
 table {
   width: 100%;
 }
-
 .table-header-row {
   background-color: #000;
   color: var(--clr-white);

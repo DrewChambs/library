@@ -207,7 +207,7 @@ closeModal.addEventListener("click", () => {
 
 // Clear All Items
 clearBtn.addEventListener("click", () => {
-  alert("Clear All Items button disbled!");
+  alert("Clear All button disbled!");
 });
 
 // Display Library on page load
