@@ -74,6 +74,9 @@ fieldset {
 .logo {
   text-align: center;
 }
+.display-text {
+  text-transform: capitalize;
+}
 
 /* Table */
 .table-container {
@@ -87,6 +90,10 @@ table {
   width: 80%;
   margin: 0 auto;
   border: 2px solid black;
+  border-radius: var(--border-radius-sm);
+}
+td {
+  text-transform: capitalize;
 }
 td,
 th {
@@ -158,8 +165,15 @@ button {
 .btn-delete {
   background-color: hsl(0, 100%, 50%);
 }
-.btn-clear,
 .btn-add {
+  font-size: 1rem;
+  border-radius: var(--border-radius-md);
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  font-weight: 800;
+  width: 60%;
+}
+.btn-clear {
   width: 60%;
   background-color: hsl(16, 100%, 50%);
   color: var(--clr-white);

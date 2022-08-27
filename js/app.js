@@ -44,6 +44,9 @@ const closeModal = document.querySelector(".fa-xmark");
 
 // Create table
 const table = document.createElement("table");
+table.setAttribute("role", "presentation");
+
+// const thead = document.createElement("thead");
 // Call form
 // mainForm.addEventListener("submit", addBookToLibrary);
 libraryForm.addEventListener("submit", addBookToLibrary);
@@ -74,21 +77,37 @@ function addBookToLibrary(e) {
   resetAllForm();
 }
 //
+// function loadHeadings(tableHeaders) {
+//   const tr = document.createElement("tr");
+//   tableHeaders.forEach(item => {
+//     const th = document.createElement("th");
+//     th.classList.add("table-header");
+//     th.textContent = `${item}`;
+//     tr.appendChild(th);
+//     table.appendChild(tr);
+//     tableContainer.appendChild(table);
+//   });
+// }
 function loadHeadings(tableHeaders) {
   const tr = document.createElement("tr");
+  tr.classList.add("display-text");
+  const thead = document.createElement("thead");
   tableHeaders.forEach(item => {
     const th = document.createElement("th");
     th.classList.add("table-header");
     th.textContent = `${item}`;
     tr.appendChild(th);
-    table.appendChild(tr);
+    thead.appendChild(tr);
+    table.appendChild(thead);
     tableContainer.appendChild(table);
   });
 }
 //
 function createBookData(libraryArray) {
+  const tbody = document.createElement("tbody");
   libraryArray.forEach((item, index) => {
     const tr = document.createElement("tr");
+
     tr.id = index;
     tr.classList.add("table-data");
     tr.innerHTML = `<td class="display-title">${item.title}</td>
@@ -96,7 +115,8 @@ function createBookData(libraryArray) {
               <td class="text-center display-pages">${item.pages}</td>
               <td class="text-center read-status display-read">${item.read}</td>
               `;
-    table.appendChild(tr);
+    // tbody.appendChild(tr);
+    // table.appendChild(tbody);
 
     // Buttons ///
     // Read
@@ -185,6 +205,8 @@ function createBookData(libraryArray) {
       localStorage.setItem("sepLibrary", JSON.stringify(items));
       location.reload();
     });
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
   });
 }
 
