@@ -90,7 +90,6 @@ function addBookToLibrary(e) {
 // }
 function loadHeadings(tableHeaders) {
   const tr = document.createElement("tr");
-  tr.classList.add("display-text");
   const thead = document.createElement("thead");
   tableHeaders.forEach(item => {
     const th = document.createElement("th");
