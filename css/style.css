@@ -25,6 +25,7 @@
   --clr-steel: hsl(207, 44%, 49%);
   --clr-bgDark: hsl(0, 0%, 0%);
   --clr-bgGrey: hsl(0, 0%, 50%);
+  --clr-bgBlue: hsla(197, 84%, 22%, 0.924);
   /* ********* */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
@@ -49,12 +50,13 @@ a {
   /* width: 95%; */
   margin: 0 auto;
   max-width: 1000px;
-  padding: 1em 0;
+  /* padding: 1em 0; */
 }
 
-/* Form */
-
 /* Main */
+.main {
+  background-color: var(--clr-bgBlue);
+}
 /* Navigation */
 
 /* Typography */
@@ -63,6 +65,7 @@ a {
 }
 .logo {
   text-align: center;
+  color: var(--clr-white);
 }
 /* Ensure display is uniformed */
 .display-text {
@@ -74,8 +77,9 @@ a {
   border: 5px solid hsl(0, 0%, 50%);
   /* border-radius: var(--border-radius-sm); */
   padding: 0.75em;
-  background-color: hsla(197, 84%, 22%, 0.924);
-  padding-bottom: 4em;
+  background-color: var(--clr-bgBlue);
+  padding: 5em;
+  height: 100vh;
 }
 table {
   width: 80%;
