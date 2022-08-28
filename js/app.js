@@ -34,7 +34,7 @@ const read = document.getElementById("book-read");
 // Table Container
 const tableContainer = document.querySelector(".table-container");
 // Table Headgings ---
-const tableHeaders = ["Title", "Author", "Pages", "Read", "Read/Edit/Delete"];
+const tableHeaders = ["Title", "Author", "Pages", "Read", "Options"];
 // Buttons
 const submitBtn = document.querySelector(".btn-submit");
 const addBtn = document.querySelector(".btn-add");
@@ -174,7 +174,7 @@ function createBookData(libraryArray) {
     });
     //
     editBtn.addEventListener("click", e => {
-      alert("Edit button disabled!");
+      alert("Edit disabled!");
       console.log("Edit pressed!");
     });
     //

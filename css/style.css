@@ -117,10 +117,10 @@ button {
   gap: 20px;
 }
 .table-buttons {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
-  gap: 10px;
+  gap: 10px; */
 }
 
 /*  */
@@ -152,6 +152,7 @@ button {
   color: #000;
   padding: 0.25em 0.5em;
   transition: 250ms;
+  width: 60px;
 }
 .btn-read {
   background-color: hsl(207, 71%, 61%);
@@ -180,7 +181,7 @@ button {
 /* &&&&&&&&&&&&& */
 /* FORM */
 .modal {
-  /* display: none; */
+  display: none;
   position: fixed;
   z-index: 1;
   padding-top: 9em;
@@ -211,10 +212,6 @@ button {
   /* ************ */
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   box-shadow: var(--box-shad);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s;
 }
 input[type="text"] {
   max-width: 100%;
@@ -223,7 +220,6 @@ fieldset {
   padding: 1em 0.75em;
 }
 legend {
-  /* font-weight: 900; */
   font-weight: var(--fw-xl);
   margin: 1em 0em;
 }
@@ -291,11 +287,6 @@ form li {
   }
   label {
     text-align: left;
-  }
-
-  /* Typography */
-  .form-logo {
-    font-size: 3rem;
   }
 
   /* Button */
