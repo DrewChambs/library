@@ -21,6 +21,7 @@ function Book(title, author, pages, read) {
 }
 // New Book Array
 let sepLibrary = [];
+let newEditItems = [];
 
 // Form
 // const mainForm = document.getElementById("main-form");
@@ -38,13 +39,20 @@ const tableHeaders = ["Title", "Author", "Pages", "Read", "Options"];
 // Buttons
 const submitBtn = document.querySelector(".btn-submit");
 const addBtn = document.querySelector(".btn-add");
+const sendBtn = document.querySelector(".btn-send");
 const clearBtn = document.querySelector(".btn-clear");
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".fa-xmark");
+//
+const editTitle = document.querySelector("#edit_title");
+const editAuthor = document.querySelector("#edit_author");
+const editPages = document.querySelector("#edit_pages");
+const items = getItemsFromStorage();
 
 // Create table
 const table = document.createElement("table");
 table.setAttribute("role", "presentation");
+table.classList.add("main-table");
 
 // const thead = document.createElement("thead");
 // Call form
@@ -76,20 +84,10 @@ function addBookToLibrary(e) {
   addItemsInLocalStorage(newBook);
   resetAllForm();
 }
-//
-// function loadHeadings(tableHeaders) {
-//   const tr = document.createElement("tr");
-//   tableHeaders.forEach(item => {
-//     const th = document.createElement("th");
-//     th.classList.add("table-header");
-//     th.textContent = `${item}`;
-//     tr.appendChild(th);
-//     table.appendChild(tr);
-//     tableContainer.appendChild(table);
-//   });
-// }
+
 function loadHeadings(tableHeaders) {
   const tr = document.createElement("tr");
+  tr.classList.add("table-header-row");
   const thead = document.createElement("thead");
   tableHeaders.forEach(item => {
     const th = document.createElement("th");
@@ -109,11 +107,12 @@ function createBookData(libraryArray) {
 
     tr.id = index;
     tr.classList.add("table-data");
-    tr.innerHTML = `<td class="display-title">${item.title}</td>
-              <td class="display-author">${item.author}</td>
-              <td class="text-center display-pages">${item.pages}</td>
+    tr.innerHTML = `<td class="book_data display-title" data-editName="title">${item.title}</td>
+              <td class="book_data display-author" data-editName="author">${item.author}</td>
+              <td class="book_data  display-pages text-center" data-editName="pages">${item.pages}</td>
               <td class="text-center read-status display-read">${item.read}</td>
               `;
+
     // tbody.appendChild(tr);
     // table.appendChild(tbody);
 
@@ -123,9 +122,9 @@ function createBookData(libraryArray) {
     readButton.classList.add("btn-read");
     readButton.textContent = `${item.read === "Yes" ? "No" : "Yes"}`;
     // Edit
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "EDIT";
-    editBtn.classList.add("btn-edit");
+    // const editBtn = document.createElement("button");
+    // editBtn.textContent = "EDIT";
+    // editBtn.classList.add("btn-edit");
     // Delete
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "DEL";
@@ -140,9 +139,9 @@ function createBookData(libraryArray) {
     table.appendChild(tr);
 
     /////
-    tdBtn.appendChild(editBtn);
-    tr.appendChild(tdBtn);
-    table.appendChild(tr);
+    // tdBtn.appendChild(editBtn);
+    // tr.appendChild(tdBtn);
+    // table.appendChild(tr);
 
     /////
     tdBtn.appendChild(deleteButton);
@@ -168,16 +167,25 @@ function createBookData(libraryArray) {
           theLast.splice(index, 1);
         }
       });
-
       console.log("After: ", theLast);
       localStorage.setItem("sepLibrary", JSON.stringify(theLast));
     });
+
     //
-    editBtn.addEventListener("click", e => {
-      alert("Edit disabled!");
-      console.log("Edit pressed!");
-    });
-    //
+    // editBtn.addEventListener("click", e => {
+    //   newEditItems = items.map(book_change => {
+    //     if (book_change.id == item.id) {
+    //       editTitle.value = book_change.title;
+    //       editAuthor.value = book_change.author;
+    //       editPages.value = book_change.pages;
+    //       editTitle.focus();
+    //     }
+    //     return book_change;
+    //   });
+    //   console.log(newEditItems);
+    //   editBtn.textContent = "Submit";
+    // });
+
     readButton.addEventListener("click", e => {
       // // Read/Completed Display
       const yes_no = e.currentTarget.parentElement.previousElementSibling;
@@ -208,7 +216,7 @@ function createBookData(libraryArray) {
     table.appendChild(tbody);
   });
 }
-
+///////////////////////////
 function addItemsInLocalStorage(nowBook) {
   let sepLibrary = localStorage.getItem("sepLibrary")
     ? JSON.parse(localStorage.getItem("sepLibrary"))
@@ -237,6 +245,12 @@ function resetAllForm() {
   read.value = "";
   title.focus();
 }
+function resetChanges() {
+  editTitle.value = "";
+  editAuthor.value = "";
+  editPages.value = "";
+}
+// ******************************* //
 
 // Clear all fields function
 // const clearItems = () => {
@@ -276,10 +290,19 @@ submitBtn.addEventListener("click", () => {
     alert("You must fill all fields!");
     return;
   }
-
   location.reload();
   title.focus();
 });
-
+// sendBtn.addEventListener("click", e => {
+//   let theLastOne = newEditItems.filter(book_change => {
+//     return book_change;
+//   });
+//   resetChanges();
+//   console.log(theLastOne);
+// });
 // Load library display
 window.addEventListener("DOMContentLoaded", createBookData(sepLibrary));
+
+// setTimeout(() => {
+//   console.log("Call of the Wild!");
+// }, 5000);
