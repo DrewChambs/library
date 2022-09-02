@@ -92,6 +92,7 @@ function loadHeadings(tableHeaders) {
   tableHeaders.forEach(item => {
     const th = document.createElement("th");
     th.classList.add("table-header");
+    // th.classList.add("text-left");
     th.textContent = `${item}`;
     tr.appendChild(th);
     thead.appendChild(tr);
