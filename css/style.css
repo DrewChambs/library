@@ -40,7 +40,7 @@ body {
 }
 
 .container {
-  /* width: 95%; */
+  width: 95%;
   margin: 0 auto;
   max-width: 1000px;
   /* padding: 1em 0; */
@@ -84,6 +84,7 @@ table {
 
 /* GRIDS */
 .table-header-row {
+  width: 100%;
   /* display: none; */
   /* grid-template-columns: repeat(5, 1fr); */
 }
@@ -161,11 +162,12 @@ button {
   letter-spacing: 3px;
 }
 .btn-add {
-  font-size: 1rem;
+  font-size: 0.8rem;
   border-radius: var(--border-radius-xl);
-  padding: 0.5em 1em;
+  padding: 0.5em;
   margin: 1em;
-  width: 70%;
+  /* width: 70%; */
+  min-width: 180px;
 }
 .btn-clear {
   width: 60%;
@@ -314,6 +316,7 @@ form li {
   /* Button */
   .btn-add {
     width: 50%;
+    font-size: 1rem;
   }
 }
 

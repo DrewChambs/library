@@ -53,6 +53,12 @@ https://drewchambs.github.io/library/
 
 # My process
 
+My initial approach was to create the intended layout in HTML and the move on to have the display render dynamically. A foray into the type of elements needed to display the library led to the Implementation of a table. Employing a table would allow for the categories to show in tabular format.
+After capturing values from input elements, the information was recorded in the “addBookToLibrary” function and subsequently display through a function that delivered dynamic renderings for each book.
+To synchronize each book with the correct heading, an array of the headings was created and loaded into the table with a function since the heading only needed to be displayed one time for the entire table.
+Each book included dynamically created buttons to delete and switch book status to “Yes” or “No” depending on whether the book was read or not. This allowed the user to change the book status after the book was already loaded into the library.
+Although the project specs didn’t call for the library to remain after a browser was closed, I felt the need to add data retention. Functions to load, retrieve, and remove were added to achieve this application feature.
+
 # Built with
 
 VS Code using HTML, CSS, and JavaScript.
@@ -62,10 +68,24 @@ VS Code using HTML, CSS, and JavaScript.
 • JavaScript
 • ES6
 • Flexbox
+. Grid
 
 # What I learned
 
+• To create dynamic elements rapidly
+• How used “localStorage’
+• Dynamically generate content
+• How to create well-defined forms
+• How to capture information from forms
+
+My speed of creation in regards to elements increased immensely.
+Time well-spent learning how to manipulate localStorage added to the delivery-time of the application.
+This process involved learning about how storage could be used on a temporary basis yet still maintain data when returning to the application at a later time.
+
 # Continued development
+
+I intend to move on to learning how to store data on a server as opposed to storing locally within the browser.
+A refactor of this project moves the focus to being able to display the data on multiple divices, so there is a need to move the headings to display for each individual book as it is viewed on mobile.
 
 # Author
 
