@@ -109,9 +109,9 @@ function createBookData(libraryArray) {
     const tr = document.createElement("tr");
     tr.id = index;
     tr.classList.add("table-data");
-    tr.innerHTML = `<td class="book_data display-title" >${item.title}</td>
-              <td class="book_data display-author" >${item.author}</td>
-              <td class="book_data  display-pages text-center" >${item.pages}</td>
+    tr.innerHTML = `<td class="book_data display-title">${item.title}</td>
+              <td class="book_data display-author">${item.author}</td>
+              <td class="book_data  display-pages text-center">${item.pages}</td>
               <td class="text-center read-status display-read">${item.read}</td>
               `;
 
