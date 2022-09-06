@@ -4,6 +4,10 @@
 // 2 de agosto, 2022
 // 6 de agosto, 2022 update
 // Sábado, 20 de agosto, 2022 //
+////////////////////////////////
+///   5 de septiembre, 2022    /////
+////////////////////////////////
+
 // Book Object
 function Book(title, author, pages, read) {
   (this.title = title),
@@ -21,10 +25,8 @@ function Book(title, author, pages, read) {
 }
 // New Book Array
 let sepLibrary = [];
-let newEditItems = [];
 
 // Form
-// const mainForm = document.getElementById("main-form");
 const libraryForm = document.getElementById("forms");
 //
 const title = document.getElementById("title");
@@ -39,37 +41,39 @@ const tableHeaders = ["Title", "Author", "Pages", "Read", "Options"];
 // Buttons
 const submitBtn = document.querySelector(".btn-submit");
 const addBtn = document.querySelector(".btn-add");
-const sendBtn = document.querySelector(".btn-send");
 const clearBtn = document.querySelector(".btn-clear");
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".fa-xmark");
-//
-const editTitle = document.querySelector("#edit_title");
-const editAuthor = document.querySelector("#edit_author");
-const editPages = document.querySelector("#edit_pages");
+
+// Get local storage items
 const items = getItemsFromStorage();
 
 // Create table
 const table = document.createElement("table");
 table.setAttribute("role", "presentation");
-table.classList.add("main-table");
+table.classList.add("layout", "display", "responsive-table");
 
-// const thead = document.createElement("thead");
 // Call form
-// mainForm.addEventListener("submit", addBookToLibrary);
 libraryForm.addEventListener("submit", addBookToLibrary);
+
 // Load table headings
 loadHeadings(tableHeaders);
 
 // *** Retrieve Library from localStorage **** //
 sepLibrary = JSON.parse(localStorage.getItem("sepLibrary"));
 
-// FUNCTIONS
+// FUNCTIONS /////////////////////////////
 function addBookToLibrary(e) {
   e.preventDefault();
   //
   let newBook = new Book(title.value, author.value, pages.value, read.value);
-
+  // Check for negative numbers
+  if (pages.value < 0) {
+    console.log("no less!");
+    alert("You must enter a number greater than 0");
+    resetAllForm();
+    return;
+  }
   // Check for empty fields
   if (
     title.value === "" ||
@@ -91,8 +95,6 @@ function loadHeadings(tableHeaders) {
   const thead = document.createElement("thead");
   tableHeaders.forEach(item => {
     const th = document.createElement("th");
-    th.classList.add("table-header");
-    // th.classList.add("text-left");
     th.textContent = `${item}`;
     tr.appendChild(th);
     thead.appendChild(tr);
@@ -105,27 +107,23 @@ function createBookData(libraryArray) {
   const tbody = document.createElement("tbody");
   libraryArray.forEach((item, index) => {
     const tr = document.createElement("tr");
-
     tr.id = index;
     tr.classList.add("table-data");
-    tr.innerHTML = `<td class="book_data display-title" data-editName="title">${item.title}</td>
-              <td class="book_data display-author" data-editName="author">${item.author}</td>
-              <td class="book_data  display-pages text-center" data-editName="pages">${item.pages}</td>
+    tr.innerHTML = `<td class="book_data display-title" >${item.title}</td>
+              <td class="book_data display-author" >${item.author}</td>
+              <td class="book_data  display-pages text-center" >${item.pages}</td>
               <td class="text-center read-status display-read">${item.read}</td>
               `;
 
-    // tbody.appendChild(tr);
-    // table.appendChild(tbody);
-
-    // Buttons ///
+    //// Buttons ////
     // Read
     const readButton = document.createElement("button");
     readButton.classList.add("btn-read");
     readButton.textContent = `${item.read === "Yes" ? "No" : "Yes"}`;
     // Edit
-    // const editBtn = document.createElement("button");
-    // editBtn.textContent = "EDIT";
-    // editBtn.classList.add("btn-edit");
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "EDIT";
+    editBtn.classList.add("btn-edit");
     // Delete
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "DEL";
@@ -134,15 +132,15 @@ function createBookData(libraryArray) {
     // Table Data element
     const tdBtn = document.createElement("td");
     // Add Buttons
-    tdBtn.classList.add("table-buttons");
+    tdBtn.classList.add("td-buttons");
     tdBtn.appendChild(readButton);
     tr.appendChild(tdBtn);
     table.appendChild(tr);
 
     /////
-    // tdBtn.appendChild(editBtn);
-    // tr.appendChild(tdBtn);
-    // table.appendChild(tr);
+    tdBtn.appendChild(editBtn);
+    tr.appendChild(tdBtn);
+    table.appendChild(tr);
 
     /////
     tdBtn.appendChild(deleteButton);
@@ -158,34 +156,20 @@ function createBookData(libraryArray) {
     deleteButton.addEventListener("click", e => {
       let row = e.currentTarget.parentElement.parentElement;
       row.remove();
-      console.log(row);
 
       let theLast = getItemsFromStorage();
-      console.log("Before: ", theLast);
-
       theLast.forEach((item, index) => {
         if (tr.id == index) {
           theLast.splice(index, 1);
         }
       });
-      console.log("After: ", theLast);
       localStorage.setItem("sepLibrary", JSON.stringify(theLast));
     });
 
     //
-    // editBtn.addEventListener("click", e => {
-    //   newEditItems = items.map(book_change => {
-    //     if (book_change.id == item.id) {
-    //       editTitle.value = book_change.title;
-    //       editAuthor.value = book_change.author;
-    //       editPages.value = book_change.pages;
-    //       editTitle.focus();
-    //     }
-    //     return book_change;
-    //   });
-    //   console.log(newEditItems);
-    //   editBtn.textContent = "Submit";
-    // });
+    editBtn.addEventListener("click", e => {
+      alert("Edit disabled!");
+    });
 
     readButton.addEventListener("click", e => {
       // // Read/Completed Display
@@ -231,14 +215,6 @@ function getItemsFromStorage() {
     : [];
 }
 
-// Update Storage
-function updateLocalStorage(newArray) {
-  let sepLibrary = localStorage.getItem("sepLibrary")
-    ? JSON.parse(localStorage.getItem("sepLibrary"))
-    : [];
-  sepLibrary.push(nowBook);
-  localStorage.setItem("sepLibrary", JSON.stringify(sepLibrary));
-}
 function resetAllForm() {
   title.value = "";
   author.value = "";
@@ -246,12 +222,6 @@ function resetAllForm() {
   read.value = "";
   title.focus();
 }
-function resetChanges() {
-  editTitle.value = "";
-  editAuthor.value = "";
-  editPages.value = "";
-}
-// ******************************* //
 
 // Clear all fields function
 // const clearItems = () => {
@@ -261,26 +231,7 @@ function resetChanges() {
 //   pages.value = "";
 // };
 
-// ------------------------ //
-// Button Events //
-addBtn.addEventListener("click", () => {
-  modal.classList.add("modal-show");
-  // clearItems();
-  console.log("Add Sup!");
-});
-
-// Close Modal
-closeModal.addEventListener("click", () => {
-  modal.classList.add("modal-close");
-  location.reload();
-});
-
-// Clear All Items
-// clearBtn.addEventListener("click", () => {
-//   alert("Clear All button disbled!");
-// });
-
-// Events
+//// Events ////
 submitBtn.addEventListener("click", () => {
   if (
     title.value === "" ||
@@ -294,16 +245,23 @@ submitBtn.addEventListener("click", () => {
   location.reload();
   title.focus();
 });
-// sendBtn.addEventListener("click", e => {
-//   let theLastOne = newEditItems.filter(book_change => {
-//     return book_change;
-//   });
-//   resetChanges();
-//   console.log(theLastOne);
-// });
-// Load library display
-window.addEventListener("DOMContentLoaded", createBookData(sepLibrary));
+addBtn.addEventListener("click", () => {
+  modal.classList.add("modal-show");
 
-// setTimeout(() => {
-//   console.log("Call of the Wild!");
-// }, 5000);
+  title.focus();
+});
+// Close Modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("modal-close");
+
+  // Clear and reset form
+  resetAllForm();
+  location.reload();
+});
+
+// Clear All Items
+// clearBtn.addEventListener("click", () => {
+//   alert("Clear All button disbled!");
+// });
+
+window.addEventListener("DOMContentLoaded", createBookData(sepLibrary));

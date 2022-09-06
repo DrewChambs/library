@@ -18,6 +18,7 @@
   </head>
   <body>
 
+
 <!-- MAIN SECTION -->
 <section class="form_section">
   <div class="modal">
@@ -31,15 +32,15 @@
             <ul class="book-styles">
               <li>
                 <label for="title">Book Title</label>
-                <input type="text" name="book-title" id="title" autofocus/>
+                <input type="text" name="book-title" id="title" class="display-text"  autofocus/>
               </li>
               <li>
                 <label for="author">Author</label>
-                <input type="text" name="author" id="author" />
+                <input type="text" name="author" id="author" class="display-text"/>
               </li>
               <li class="pages-size">
                 <label for="pages">Pages</label>
-                <input type="number" name="pages" id="pages" />
+                <input type="number" name="pages" id="pages" class="display-text" min="1" max="999"/>
               </li>
               <li>
                 <label for="book-read">Read</label>
@@ -60,13 +61,11 @@
     <section class="main">
       <div class="container">
         <div class="table-container">
-          <h1 class="logo">Personal Library</h1>
+          <h1 class="logo">Personal library</h1>
           <div class="bookHolder">
             <button class="btn-add" id="btn-add">Add New Book</button>
-            <!-- <input type="text" id="edit_title" class="edit_title">
-            <input type="text" id="edit_author" class="edit_author">
-            <input type="text" id="edit_pages" class="edit_pages">
-            <button type="submit" class="btn-send">SEND</button> -->
+            <p class="user-notice">book added to library!</p>
+           
          </div>
         </div>
       </div>
