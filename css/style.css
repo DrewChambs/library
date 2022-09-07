@@ -394,13 +394,16 @@ form li {
   /* Modal Form Content */
   .book-information-form {
     min-height: 500px;
-    max-width: 95%;
+    max-width: 80%;
   }
   input[type="text"] {
     width: 90%;
   }
   fieldset {
     padding: 1em 0.75em;
+  }
+  legend {
+    text-align: center;
   }
   .book-styles li {
     display: flex;
