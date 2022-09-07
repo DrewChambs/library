@@ -36,19 +36,20 @@ const read = document.getElementById("book-read");
 
 // Table Container
 const tableContainer = document.querySelector(".table-container");
-// Table Headgings ---
+// Table Headings Array ---
 const tableHeaders = ["Title", "Author", "Pages", "Read", "Options"];
-// Buttons
+// Event Buttons
 const submitBtn = document.querySelector(".btn-submit");
 const addBtn = document.querySelector(".btn-add");
 const clearBtn = document.querySelector(".btn-clear");
-const modal = document.querySelector(".modal");
 const closeModal = document.querySelector(".fa-xmark");
+// Form modal
+const modal = document.querySelector(".modal");
 
 // Get local storage items
 const items = getItemsFromStorage();
 
-// Create table
+// Create table/add attributes
 const table = document.createElement("table");
 table.setAttribute("role", "presentation");
 table.classList.add("layout", "display", "responsive-table");
@@ -57,16 +58,17 @@ table.classList.add("layout", "display", "responsive-table");
 libraryForm.addEventListener("submit", addBookToLibrary);
 
 // Load table headings
-loadHeadings(tableHeaders);
+loadTableHeadings(tableHeaders);
 
 // *** Retrieve Library from localStorage **** //
 sepLibrary = JSON.parse(localStorage.getItem("sepLibrary"));
 
-// FUNCTIONS /////////////////////////////
+// FUNCTIONS
 function addBookToLibrary(e) {
   e.preventDefault();
-  //
+
   let newBook = new Book(title.value, author.value, pages.value, read.value);
+
   // Check for negative numbers
   if (pages.value < 0) {
     console.log("no less!");
@@ -86,10 +88,10 @@ function addBookToLibrary(e) {
   }
   // Add new book & load local storage
   addItemsInLocalStorage(newBook);
+  // Reset form after book entry submit
   resetAllForm();
 }
-
-function loadHeadings(tableHeaders) {
+function loadTableHeadings(tableHeaders) {
   const tr = document.createElement("tr");
   tr.classList.add("table-header-row");
   const thead = document.createElement("thead");
@@ -102,7 +104,6 @@ function loadHeadings(tableHeaders) {
     tableContainer.appendChild(table);
   });
 }
-//
 function createBookData(libraryArray) {
   const tbody = document.createElement("tbody");
   libraryArray.forEach((item, index) => {
@@ -172,7 +173,7 @@ function createBookData(libraryArray) {
     });
 
     readButton.addEventListener("click", e => {
-      // // Read/Completed Display
+      // Read/Completed Display
       const yes_no = e.currentTarget.parentElement.previousElementSibling;
 
       // Check and change read/completed value
@@ -183,6 +184,7 @@ function createBookData(libraryArray) {
         yes_no.innerHTML = "No";
         readButton.innerHTML = "Yes";
       }
+
       // Get localStorage
       let items = getItemsFromStorage();
       console.log(items);
@@ -201,7 +203,6 @@ function createBookData(libraryArray) {
     table.appendChild(tbody);
   });
 }
-///////////////////////////
 function addItemsInLocalStorage(nowBook) {
   let sepLibrary = localStorage.getItem("sepLibrary")
     ? JSON.parse(localStorage.getItem("sepLibrary"))
@@ -214,7 +215,6 @@ function getItemsFromStorage() {
     ? JSON.parse(localStorage.getItem("sepLibrary"))
     : [];
 }
-
 function resetAllForm() {
   title.value = "";
   author.value = "";
@@ -222,7 +222,6 @@ function resetAllForm() {
   read.value = "";
   title.focus();
 }
-
 // Clear all fields function
 // const clearItems = () => {
 //   title.value = "";
@@ -258,10 +257,10 @@ closeModal.addEventListener("click", () => {
   resetAllForm();
   location.reload();
 });
-
 // Clear All Items
 // clearBtn.addEventListener("click", () => {
 //   alert("Clear All button disbled!");
 // });
 
+// Load library display on page load
 window.addEventListener("DOMContentLoaded", createBookData(sepLibrary));
