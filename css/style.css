@@ -176,12 +176,6 @@ button {
   transition: 250ms ease-in;
   font-size: 1.25rem;
 }
-/* Button */
-/* .btn-add {
-  box-shadow: var(--box-shad2);
-  width: 50%;
-  font-size: 1rem;
-} */
 .btn-clear {
   width: 60%;
   background-color: hsl(16, 100%, 50%);
@@ -246,7 +240,6 @@ button {
 .modal-close {
   display: none;
 }
-/* *************** */
 
 /**** Form ****/
 .book-information-form {
@@ -307,7 +300,6 @@ form li {
 
 /* Media *****/
 @media (max-width: 800px) {
-  /* **************** */
   .btn-read,
   .btn-edit,
   .btn-delete {
@@ -331,7 +323,6 @@ form li {
   table.display td {
     padding: 0.5em;
   }
-
   table.responsive-table td:nth-child(1):before {
     content: "Title:";
     font-size: 0.9rem;

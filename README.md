@@ -90,6 +90,14 @@ This process involved learning about how storage could be used on a temporary ba
 I intend to move on to learning how to store data on a server as opposed to storing locally within the browser.
 A refactor of this project moves the focus to being able to display the data on multiple divices, so there is a need to move the headings to display for each individual book as it is viewed on mobile.
 
+- Update:
+  \*\* Project is now optimzed for mobile view.
+  To make this project complete a opening welcome screen needs to be added to welcome the user initially to the application.
+  Minor adjustments include:
+- User display notice as new book added
+- Clear all items functionality
+- Full dashboard for user
+
 # Author
 
 Andrew Chambers
