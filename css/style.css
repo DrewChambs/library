@@ -250,6 +250,19 @@ input[type="text"] {
 }
 
 @media (max-width: 550px) {
+  .container {
+    width: 100%;
+  }
+  .dashboard-title-logo {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+  }
+  /* Typography */
+  .dashboard__title {
+    margin: 0;
+    text-align: center;
+  }
   /* Buttons */
   .button-row {
     flex-direction: column;
