@@ -1,0 +1,391 @@
+/* Table & Form Styles */
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-shellWhite: hsl(0, 22%, 90%);
+  --clr-steel: hsl(207, 44%, 49%);
+  --clr-bgDark: hsl(0, 0%, 0%);
+  --clr-bgGrey: hsl(0, 0%, 50%);
+  --clr-bgBlue: hsla(197, 84%, 22%, 0.924);
+  --clr-midGrey: hsl(0, 4%, 44%);
+  --clr-fadedGrey: hsl(0, 0%, 60%);
+  --clr-ltgreen: hsl(173, 37%, 64%);
+  --clr-orange: hsl(16, 78%, 46%);
+  --clr-orangeRed: hsl(16, 100%, 50%);
+  --clr-red: hsl(0, 100%, 50%);
+
+  /* background-image */
+  --clr-linearBlue: linear-gradient(hsl(240, 100%, 27%), hsl(196, 37%, 37%));
+  --clr-linearInverseBlue: linear-gradient(
+    hsl(192, 80%, 16%),
+    hsl(240, 100%, 27%)
+  );
+  --clr-linearDarkBlue: linear-gradient(hsl(240, 100%, 50%), hsl(0, 0%, 10%));
+  --clr-linearGrey: linear-gradient(#353232, hsl(0, 0%, 50%));
+  /************************/
+  --border-radius-4: 4px;
+  --border-radius-8: 8px;
+  --border-radius-100: 100px;
+  --box-shad: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  --box-shad2: 0 1px 10px rgba(0, 0, 0, 0.4);
+  --fw-900: 900;
+  --transition250: 250ms ease-in;
+  --transition500: 500ms ease-in;
+}
+
+/* Typography */
+.logo {
+  text-align: center;
+}
+
+/* User confirmation */
+.user-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  width: 50%;
+  /* height: 40px; */
+  padding: 0 1em;
+  background-color: rgba(83, 207, 83, 0.5);
+  border-radius: var(--border-radius-100);
+  color: #000;
+  visibility: hidden;
+}
+/* Ensure display is uniformed */
+.display-text {
+  text-transform: capitalize;
+}
+
+/* MAIN TABLE */
+tr {
+  background-color: lightgray;
+  transition: 250ms ease-in;
+}
+table.layout {
+  width: 100%;
+  border-collapse: collapse;
+}
+table.display {
+  margin: 1em 0;
+}
+table.display th,
+table.display td {
+  padding: 0.5em 1em;
+  text-align: left;
+}
+table.display th {
+  background-image: var(--clr-linearBlue);
+  color: var(--clr-white);
+}
+table.responsive-table {
+  box-shadow: var(--box-shad);
+}
+th,
+td {
+  text-transform: capitalize;
+}
+.td-buttons {
+  display: flex;
+  column-gap: 0.5em;
+}
+tbody tr:hover {
+  background: #8c9092;
+  color: #ffffff;
+}
+.table-header-row th:last-of-type {
+  text-align: center;
+}
+
+/**** Form ****/
+.book-information-form {
+  width: 550px;
+  height: 350px;
+  padding: 3em 3em 5em;
+}
+input {
+  width: 300px;
+}
+.btn-submit-list {
+  padding-left: 110px;
+}
+.book-styles li {
+  flex-direction: row;
+}
+label {
+  text-align: left;
+}
+
+/* Buttons */
+button {
+  border: none;
+  color: var(--clr-white);
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: 250ms ease-in-out;
+}
+/* Add/Clear buttons Container*/
+.bookHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: 5px; */
+}
+.btn-submit {
+  width: 90%;
+  border-radius: var(--border-radius-100);
+  background-color: green;
+  letter-spacing: 5px;
+  font-size: 0.9rem;
+  border: 3px solid transparent;
+}
+.btn-add {
+  background-image: var(--clr-linearBlue);
+  border-radius: var(--border-radius-100);
+  color: var(--clr-shellWhite);
+  padding: 0.5em;
+  margin-top: 1em;
+  min-width: 170px;
+  box-shadow: var(--box-shad2);
+  width: 50%;
+  font-size: 1rem;
+  transition: var(--transition250);
+  /* border: 3px solid transparent; */
+}
+.btn-clear {
+  width: 60%;
+  background-color: hsl(16, 100%, 50%);
+  color: var(--clr-white);
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius-8);
+  margin-bottom: 1em;
+  font-size: 0.6rem;
+}
+.btn-read,
+.btn-edit,
+.btn-delete {
+  border: 2px solid var(--clr-bgGrey);
+  border-radius: var(--border-radius-4);
+  color: #000;
+  padding: 0.25em 0.5em;
+  transition: 250ms;
+  width: 60px;
+}
+
+/* Button hover states */
+.btn-add:hover {
+  background-image: var(--clr-linearGrey);
+  color: var(--clr-white);
+  /* border: 3px solid #000; */
+}
+.btn-edit:hover,
+.btn-read:hover {
+  background-color: hsl(120, 100%, 30%);
+  color: var(--clr-white);
+}
+.btn-delete:hover {
+  background-color: var(--clr-red);
+  color: var(--clr-white);
+  border: 2px solid var(--clr-bgDark);
+}
+.btn-submit:hover {
+  background-color: rgb(31, 170, 31);
+  background-color: var(--clr-white);
+  border: 3px solid black;
+  color: #000;
+}
+
+/* FORM */
+.form-decoration {
+  text-transform: capitalize;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 9em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-show {
+  display: block;
+}
+.modal-close {
+  display: none;
+}
+/* *************** */
+
+/**** Form ****/
+.book-information-form {
+  position: relative;
+  /* min-height: 400px; */
+  width: 550px;
+  height: 450px;
+  margin: 0 auto;
+  background-color: var(--clr-steel);
+  border-radius: var(--border-radius-8);
+  color: var(--clr-white);
+  /* padding: 3em 3em 5em; */
+}
+input[type="text"] {
+  width: 300px;
+}
+fieldset {
+  padding: 1.5em 0.75em;
+}
+legend {
+  margin: 1em 0em;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+  margin-right: 0.5em;
+}
+/* Set submit button inline with input fields */
+.btn-submit-list {
+  padding-left: 110px;
+}
+
+/* *************** */
+.close-box {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  transition: transform 250ms;
+}
+.close-box:hover {
+  transform: scale(1.2);
+}
+form li {
+  margin-top: 1em;
+}
+.pages-size input {
+  width: 80px;
+}
+
+/* Media *****/
+@media (max-width: 800px) {
+  /* **************** */
+  .btn-read,
+  .btn-edit,
+  .btn-delete {
+    background-color: rgb(96, 166, 223);
+    color: #fff;
+  }
+  tr {
+    box-shadow: var(--box-shad2);
+    background-image: var(--clr-linearBlue);
+    border-radius: var(--border-radius-8);
+    font-size: 0.9rem;
+  }
+  table.responsive-table {
+    box-shadow: none;
+    color: var(--clr-white);
+  }
+  table.responsive-table thead {
+    display: none;
+  }
+  table.display th,
+  table.display td {
+    padding: 0.5em;
+  }
+
+  table.responsive-table td:nth-child(1):before {
+    content: "Title:";
+    font-size: 0.9rem;
+  }
+  table.responsive-table td:nth-child(2):before {
+    content: "Author:";
+    font-size: 0.8rem;
+  }
+  table.responsive-table td:nth-child(3):before {
+    content: "Pages:";
+    font-size: 0.8rem;
+  }
+  table.responsive-table td:nth-child(4):before {
+    content: "Read:";
+    font-size: 0.8rem;
+  }
+  table.responsive-table td:nth-child(5):before {
+    content: "Complete \21E8";
+    font-size: 0.7rem;
+  }
+
+  table.responsive-table td:nth-child(1),
+  table.responsive-table td:nth-child(2),
+  table.responsive-table td:nth-child(3),
+  table.responsive-table td:nth-child(4),
+  table.responsive-table td:nth-child(5) {
+    padding-left: 25%;
+  }
+  table.responsive-table td:nth-child(1):before,
+  table.responsive-table td:nth-child(2):before,
+  table.responsive-table td:nth-child(3):before,
+  table.responsive-table td:nth-child(4):before,
+  table.responsive-table td:nth-child(5):before {
+    position: absolute;
+    left: 0.75em;
+    font-weight: var(--fw-900);
+  }
+  table.responsive-table tr,
+  table.responsive-table td {
+    display: block;
+  }
+  table.responsive-table tr {
+    position: relative;
+    margin-bottom: 1em;
+    box-shadow: var(--box-shad2);
+  }
+
+  .td-buttons button {
+    font-size: 0.7rem;
+    width: 40px;
+    margin-left: 1em;
+  }
+  tbody tr:hover {
+    background-image: var(--clr-linearBlue);
+  }
+
+  /* Modal Form Content */
+  .book-information-form {
+    min-height: 500px;
+    max-width: 95%;
+  }
+  input[type="text"] {
+    width: 90%;
+  }
+  fieldset {
+    padding: 1em 0.75em;
+  }
+  .book-styles li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Set submit button inline with input fields */
+  .btn-submit-list {
+    padding-left: 0;
+  }
+  label {
+    text-align: center;
+  }
+  form li {
+    margin-top: 1em;
+  }
+}

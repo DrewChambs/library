@@ -3,75 +3,182 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Odin Library Application</title>
+    <title>Library Admin Dashboard</title>
 
+    <!-- Favicon  -->
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+
+    <!-- CS Link -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/table_form.css" />
     <!-- Font Awesome -->
-       <script
+    <script
       src="https://kit.fontawesome.com/bc0e63a317.js"
       crossorigin="anonymous"
     ></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <!-- JS -->
+
+    <!-- JS Link -->
     <script src="./js/app.js" defer></script>
-    
   </head>
   <body>
-
-
-<!-- MAIN SECTION -->
-<section class="form_section">
-  <div class="modal">
-    <form id="forms" class="book-information-form">
-          <div class="close-box">
-            <i class="fa-solid fa-xmark"></i>
+    <section class="container">
+      <!-- 1 Side Navigation -->
+      <nav class="left-sidebar-nav">
+        <div class="dashboard__side">
+          <div class="dashboard-title-logo">
+            <i class="fa-solid fa-table-columns"></i>
+            <h1 class="dashboard__title">Dashboard</h1>
           </div>
-          <fieldset>
-            <p class="entry-warning"></p>
-            <legend>Add to library</legend>
-            <ul class="book-styles">
-              <li>
-                <label for="title">Book Title</label>
-                <input type="text" name="book-title" id="title" class="display-text"  autofocus/>
+          <nav class="nav">
+            <ul class="nav__link">
+              <li class="nav__link-list">
+                <i class="fa-solid fa-house side-nav-icons"></i>
+                <a href="../index.html" class="nav__link-anchor">home</a>
               </li>
-              <li>
-                <label for="author">Author</label>
-                <input type="text" name="author" id="author" class="display-text"/>
+              <li class="nav__link-list">
+                <i class="fa-solid fa-address-card side-nav-icons"></i>
+                <a href="./pages/profile.html" class="nav__link-anchor"
+                  >profile</a
+                >
               </li>
-              <li class="pages-size">
-                <label for="pages">Pages</label>
-                <input type="number" name="pages" id="pages" class="display-text" min="1" max="999"/>
+              <li class="nav__link-list">
+                <i class="fa-solid fa-message side-nav-icons"></i>
+                <a href="#" class="nav__link-anchor">messages</a>
               </li>
-              <li>
-                <label for="book-read">Read</label>
-                <select id="book-read" name="book-read">
-                  <option value="Yes">Yes</option>
-                  <option value="No" selected>No</option>
-                </select>
+              <li class="nav__link-list">
+                <i class="fa-solid fa-clock side-nav-icons"></i>
+                <a href="#" class="nav__link-anchor">history</a>
               </li>
-              <li class="btn-submit-list">
-                <button type="submit" class="btn-submit">Submit</button>
+              <li class="nav__link-list">
+                <i class="fa-solid fa-scroll side-nav-icons"></i>
+                <a href="#" class="nav__link-anchor">tasks</a>
+              </li>
+              <li class="nav__link-list">
+                <i class="fa-solid fa-people-group side-nav-icons"></i>
+                <a href="#" class="nav__link-anchor">communities</a>
               </li>
             </ul>
-          </fieldset>
-        </form>
-       </div>
-    </section>
+            <ul class="nav__link2">
+              <li class="nav__link2-list">
+                <i class="fa-solid fa-gear side-nav-icons"></i>
+                <a href="#" class="nav__link2-anchor">settings</a>
+              </li>
+              <li class="nav__link2-list">
+                <i class="fa-solid fa-circle-question side-nav-icons"></i>
+                <a href="#" class="nav__link2-anchor">support</a>
+              </li>
+              <li class="nav__link2-list">
+                <i class="fa-solid fa-lock side-nav-icons"></i>
+                <a href="#" class="nav__link2-anchor">privacy</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </nav>
 
-    <section class="main">
-      <div class="container">
+      <!-- 2 Main Header - Top -->
+      <header class="header">
+        <!-- <div class="search-icons"> -->
+        <!-- <div class="icon-name">
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-face-grin-wink"></i>
+          <p class="user-name">Samuel Cage</p>
+        </div> -->
+
+        <!-- <div class="search-glass">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search" />
+        </div> -->
+        <!-- </div> -->
+
+        <div class="button-row">
+          <div class="hi-there">
+            <i class="fa-solid fa-face-grin-wink"></i>
+            <p class="greeting">Hi There!</p>
+          </div>
+          <p class="user-name">Samuel Cage (@samuel)</p>
+
+          <button class="user-btn">New</button>
+          <button class="user-btn">Upload</button>
+          <button class="user-btn">Share</button>
+        </div>
+      </header>
+
+      <!-- 3 Table -->
+      <article class="main-section">
         <div class="table-container">
-          <h1 class="logo">Personal library</h1>
-       
+          <h1 class="logo">Create a Personal library</h1>
+          <p class="directions">(Add a new book below)</p>
           <div class="bookHolder">
             <button class="btn-add" id="btn-add">Add New Book</button>
             <p class="user-notice">book added to library!</p>
-           
-         </div>
+          </div>
         </div>
-      </div>
-      </div>
+
+        <section class="form_section">
+          <div class="modal">
+            <form id="forms" class="book-information-form">
+              <div class="close-box">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+              <fieldset>
+                <p class="entry-warning"></p>
+                <legend>Add to library</legend>
+                <ul class="book-styles">
+                  <li>
+                    <label for="title">Book Title</label>
+                    <input
+                      type="text"
+                      name="book-title"
+                      id="title"
+                      class="display-text"
+                      autofocus
+                    />
+                  </li>
+                  <li>
+                    <label for="author">Author</label>
+                    <input
+                      type="text"
+                      name="author"
+                      id="author"
+                      class="display-text"
+                    />
+                  </li>
+                  <li class="pages-size">
+                    <label for="pages">Pages</label>
+                    <input
+                      type="number"
+                      name="pages"
+                      id="pages"
+                      class="display-text"
+                      min="1"
+                      max="999"
+                    />
+                  </li>
+                  <li>
+                    <label for="book-read">Read</label>
+                    <select id="book-read" name="book-read">
+                      <option value="Yes">Yes</option>
+                      <option value="No" selected>No</option>
+                    </select>
+                  </li>
+                  <li class="btn-submit-list">
+                    <button type="submit" class="btn-submit">Submit</button>
+                  </li>
+                </ul>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </article>
     </section>
-  
+
+    <!-- Form -->
+
+    <!-- END FORM -->
   </body>
 </html>

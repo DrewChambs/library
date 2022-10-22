@@ -97,6 +97,7 @@ A refactor of this project moves the focus to being able to display the data on 
 - User display notice as new book added
 - Clear all items functionality
 - Full dashboard for user
+- UI dashboard added
 
 # Author
 
