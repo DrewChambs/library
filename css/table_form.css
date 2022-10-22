@@ -365,7 +365,7 @@ form li {
   .book-information-form {
     min-height: 500px;
     /* max-width: 95%; */
-    width: 100%;
+    width: 80%;
   }
   input[type="text"] {
     width: 90%;
