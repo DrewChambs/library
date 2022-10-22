@@ -254,6 +254,11 @@ input[type="text"] {
   .container {
     width: 100%;
   }
+
+  /** Main **/
+  .main-section {
+    height: 100vh;
+  }
   .dashboard-title-logo {
     display: grid;
     grid-template-columns: 1fr;

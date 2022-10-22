@@ -364,7 +364,8 @@ form li {
   /* Modal Form Content */
   .book-information-form {
     min-height: 500px;
-    max-width: 95%;
+    /* max-width: 95%; */
+    width: 100%;
   }
   input[type="text"] {
     width: 90%;
