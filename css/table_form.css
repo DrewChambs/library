@@ -281,6 +281,11 @@ form li {
 /* Media *****/
 @media (max-width: 800px) {
   /* **************** */
+  .book-information-form {
+    max-width: 90%;
+  }
+
+  /* Buttons */
   .btn-read,
   .btn-edit,
   .btn-delete {
